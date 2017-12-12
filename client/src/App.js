@@ -6,6 +6,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Menu from './components/Menu';
 import Item from './components/Item';
+import NoMatch from './components/NoMatch';
 
 class App extends Component {
   render() {
@@ -16,7 +17,8 @@ class App extends Component {
           <Route exact path='/' component={ Home } />
           <Route exact path='/about' component={ About } />
           <Route path='/menu' component={ Menu } />
-          <Route path='/Item' component={ Item } />
+          <Route path='/item' component={ Item } />
+          <Route component={ NoMatch } />
         </Switch>
       </Segment>
     );

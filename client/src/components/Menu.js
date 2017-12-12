@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Segment, Button, Card, Image } from 'semantic-ui-react';
+import { Link } from 'react-dom';
 import axios from 'axios';
 
 class Menu extends Component {
@@ -11,6 +12,7 @@ class Menu extends Component {
     axios.get('/api/menu_items/')
       .then(res => {
         this.setState({ items: res.data })
+        debugger
       }).catch(err => {
         console.log(`Error - ${err}`)
     });
@@ -34,10 +36,9 @@ class Menu extends Component {
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <div className='ui three buttons'>
-              <Button basic color='blue'>View</Button>
+            <div className='ui two buttons'>
+              <Button as={Link} to={`/api/menu_items/${this.state.items.id}`} color='blue'>View</Button>
               <Button basic color='green'>Edit</Button>
-              <Button basic color='red' onClick={this.deleteItem}>Delete</Button>
             </div>
           </Card.Content>
         </Card>

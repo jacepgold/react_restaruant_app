@@ -2,6 +2,7 @@ class Api::MenusController < ApplicationController
   before_action :set_menu, except: [:create]
 
   def index
+    render json: Menu.all
   end
 
   def show
